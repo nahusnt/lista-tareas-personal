@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Tareas Personal</title>
+</head>
+<body>
+    <h1>Lista de Tareas Personal</h1>
+
+   
+    <form action="/agregar" method="POST">
+        <input type="text" name="titulo" placeholder="Escribí una tarea..." required>
+        <button type="submit">Agregar Tarea</button>
+    </form>
+
+    <hr>
+
+    
+    <ul>
+        {% for tarea in tareas %}
+            <li>
+                {{ tarea.titulo }}
+                <a href="/eliminar/{{ tarea.id }}">[ Eliminar ]</a>
+            </li>
+        {% else %}
+            <li>No hay tareas registradas.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
